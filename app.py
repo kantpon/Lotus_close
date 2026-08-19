@@ -66,7 +66,7 @@ def setup_gsheet():
     worksheet = sheet.worksheet(st.secrets["gsheet"].get("worksheet_name", "Data_Receipts"))
     return worksheet
 
-@st.cache_data(ttl=0)
+@st.cache_data(ttl=300)
 def load_branch_list():
     """
     โหลดรายชื่อสาขาจากชีท "รายชื่อสาขา" ผ่าน Service Account
@@ -237,7 +237,7 @@ def compress_image(file, max_side: int = 1280, quality: int = 78, extra_rotation
 
 def upload_to_cloudinary(image_bytes, filename, receipt_data):
     """
-    อัพโหลดขึ้น Cloudinary โดยเก็บรวมไว้ในโฟลเดอร์ branch โฟลเดอร์เดียวทั้งหมด
+    อัพโหลดขึ้น Cloudinary โดยเก็บรวมไว้ในโฟลเดอร์ Lotus Project โฟลเดอร์เดียวทั้งหมด
     """
     result = cloudinary.uploader.upload(
         image_bytes,
