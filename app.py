@@ -66,7 +66,7 @@ def setup_gsheet():
     worksheet = sheet.worksheet(st.secrets["gsheet"].get("worksheet_name", "Data_Receipts"))
     return worksheet
 
-@st.cache_data(ttl=0)
+@st.cache_data(ttl=300)
 def load_branch_list():
     """
     โหลดรายชื่อสาขาจากชีท "รายชื่อสาขา" ผ่าน Service Account
