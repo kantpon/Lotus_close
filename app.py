@@ -241,7 +241,7 @@ def upload_to_cloudinary(image_bytes, filename, receipt_data):
     """
     result = cloudinary.uploader.upload(
         image_bytes,
-        folder="branch",
+        folder="Lotus Project",
         public_id=filename,
         resource_type="image",
         overwrite=False,
